@@ -31,4 +31,8 @@ jobs:
       - name: Main program
         run: |
           echo "🤖 Executing fetcher..."
-          deno run --allow-net=www.saltedge.com --allow-env fetcher.ts
+          deno run --allow-net=www.saltedge.com --allow-env fetcher.ts 
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          SECRET: ${{ secrets.SECRET }}
+          CUSTOMER_ID: ${{ secrets.CUSTOMER_ID }}
