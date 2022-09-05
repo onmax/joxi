@@ -7,6 +7,13 @@ const APP_ID = Deno.env.get("APP_ID");
 const SECRET = Deno.env.get("SECRET");
 const CUSTOMER_ID = Deno.env.get("CUSTOMER_ID");
 
+// throw error if env is not set
+if (!APP_ID || !SECRET || !CUSTOMER_ID) {
+    const envs = { APP_ID, SECRET, CUSTOMER_ID }
+    const missing = Object.entries(envs).filter(([_, value]) => !value).map(([key]) => key).join(", ")
+    throw new Error(`Missing env variables: ${missing}`)
+}
+
 const headers = {
     "Accept": "application/json",
     "Content-type": "application/json",
