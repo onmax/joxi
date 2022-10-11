@@ -4,7 +4,7 @@
 
 ## Features
 
-- 🤖 **Automatic** - Joxi runs every day and automatically updates your Notion database with your latest transactions.
+- 🤖 **Automatic** - Joxi runs every day and automatically updates your Notion database with your transactions.
 - 📈 **Data in Notion** - Joxi creates a well-structured database Notion with all your transactions and accounts.
 - 📊 **Customizable** - You can customize the database structure and the data that is imported.
 - 🏦 **Multi-bank** - Joxi supports multiple banks and crypto wallets.
@@ -69,7 +69,7 @@ This guide will show you how to create an agreement with a bank using Nordigen's
 
 > If you don't find your bank, make sure to also search with `payments_enabled` set to `true`.
 
-2. [This step is optional][^1] Create a new agreement using [Nordigen's UI](https://ob.nordigen.com/api/docs#/agreements/create%20EUA%20v2):
+2. _This step is optional_[^1] Create a new agreement using [Nordigen's UI](https://ob.nordigen.com/api/docs#/agreements/create%20EUA%20v2):
 
    - Make sure to allow `balances`, `details` and `transactions` in `access_scope` for better results.
    - Change the `institution_id` with the one you copied in step 1.
