@@ -98,6 +98,14 @@ TODO
 4. Duplicate the [Joxi template](https://onmax.notion.site/Joxi-Template-907135d9cb70445eb99e4f137562353b) and add it to your Notion workspace.
 5. Once you have duplicated the template, click on `More options` > `Add connections` > Select your connection you created in step 2.
 
+## Tech stack
+
+- [Nordigen](https://nordigen.com/) - Open Banking API.
+- [Coinbase](https://www.coinbase.com/) - Crypto API.
+- [Notion](https://www.notion.so/) - Database.
+- [GitHub Actions](https://github.com/features/actions)
+- [Deno with TypeScript](https://deno.land/)
+
 ## Roadmap
 
 - [ ] Improve Notion Template.
