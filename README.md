@@ -15,7 +15,7 @@
 
 ## How does it work?
 
-1. You grant access:
+1. You grant access to:
    1. Your banks: A GitHub Secret storing your's Nordigen's key, which will allow Joxi to communicate with your banks(through Nordigen).
    2. Your crypto wallets: A GitHub Secret storing your's Coinbase's key, which will allow Joxi to communicate with your crypto wallets in Coinbase.
    3. Your Notion database: A GitHub Secret storing your's Notion API key, which will allow Joxi to write the data to your database.
