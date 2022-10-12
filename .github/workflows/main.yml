@@ -31,7 +31,7 @@ jobs:
       - name: Main program
         run: |
           echo "🤖 Executing fetcher..."
-          deno run --allow-net=ob.nordigen.com/,api.notion.com,api.coinbase.com --allow-env ./src/fetcher.ts
+          deno run --allow-net=ob.nordigen.com/,api.notion.com,api.coinbase.com --allow-env ./src/main.ts
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           COINBASE_KEY: ${{ secrets.COINBASE_KEY }}
