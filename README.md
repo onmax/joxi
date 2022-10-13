@@ -27,7 +27,7 @@
 
 ### GitHub Action
 
-Joxi uses a GitHub Action to run every day and fetch the data. The action is triggered by a cron job, which runs every day at 12:07 AM UTC. You can change this behavior in the source code of the [GitHub Action](/blob/main/.github/workflows/main.yml).
+Joxi uses a GitHub Action to run every day and fetch the data. The action is triggered by a cron job, which runs every day at 12:07 AM UTC. You can change this behavior in the source code of the [GitHub Action](/.github/workflows/main.yml).
 
 ## Requirements
 
@@ -108,6 +108,7 @@ TODO
 
 ## Roadmap
 
+- [ ] Publish the code to Deno's registry and move the GitHub Action to a separate repository.
 - [ ] Improve Notion Template.
 - [ ] Add support for [Categorization](https://nordigen.com/en/products/transaction-categorisation/).
 - [ ] Add support for Kucoin.
