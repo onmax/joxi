@@ -1,5 +1,5 @@
 import type { INordigenPagination, INordigenBank, INordigenRequisition, INordigenTransactions, INordigenBankAccount, INordigenBankAccountDetail, Bank, Account, INordigenBankAccountBalances, Transaction } from "../types/index.d.ts";
-import { get } from "./ob-util.ts";
+import { get } from "./util.ts";
 import { log } from "../util/logger.ts";
 
 async function getRequisitions() {

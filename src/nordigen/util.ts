@@ -7,7 +7,6 @@ const BASE_URL = "https://ob.nordigen.com/api/v2"
 const NORDIGEN_SECRET = Deno.env.get("NORDIGEN_SECRET");
 const NORDIGEN_KEY = Deno.env.get("NORDIGEN_KEY");
 
-
 if (!NORDIGEN_SECRET || !NORDIGEN_KEY) {
     const envs = { NORDIGEN_SECRET, NORDIGEN_KEY }
     const missing = Object.entries(envs).filter(([_, value]) => !value).map(([key]) => key).join(", ")
