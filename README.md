@@ -90,13 +90,12 @@ TODO
 
 1. Go to [Notion's Integration page](https://www.notion.com/my-integrations) and create a new integration. Make sure to select: `Read content`, `Update content` and `Insert content`. In `User Capabilities`, you can select `No user information` as no user information will be needed.
 2. Copy the `Integration Token`.
-3. Create a [`New repository secret`](/settings/secrets/actions/new) in GitHub:
+3. Duplicate the [Joxi template](https://onmax.notion.site/Joxi-Template-907135d9cb70445eb99e4f137562353b) and add it to your Notion workspace.
+4. Once you have duplicated the template, click on `More options` > `Add connections` > Select your connection you created in step 1.
+5. Create two [`repository secrets`](/settings/secrets/actions/new) in GitHub:
 
-   - Name: `NOTION_TOKEN`
-   - Value: `Integration Token` from step 3.
-
-4. Duplicate the [Joxi template](https://onmax.notion.site/Joxi-Template-907135d9cb70445eb99e4f137562353b) and add it to your Notion workspace.
-5. Once you have duplicated the template, click on `More options` > `Add connections` > Select your connection you created in step 2.
+   - Name: `NOTION_TOKEN`. Value: `Integration Token` from step 3.
+   - Name: `NOTION_MAIN_PAGE_ID`. Value: The id of the page you duplicated in step 4. You can find the id in the URL of the page. For example, the id here `https://onmax.notion.site/Joxi-Template-907135d9cb70445eb99e4f137562353b` is `907135d9cb70445eb99e4f137562353b`.
 
 ## Tech stack
 

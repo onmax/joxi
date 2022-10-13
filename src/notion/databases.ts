@@ -1,29 +1,42 @@
-import { CreatePageParameters, QueryDatabaseResponse } from "https://deno.land/x/notion_sdk@v1.0.4/src/api-endpoints.ts";
+import { BlockObjectResponse, CreatePageParameters, QueryDatabaseResponse } from "https://deno.land/x/notion_sdk@v1.0.4/src/api-endpoints.ts";
 import { Client } from "https://deno.land/x/notion_sdk@v1.0.4/src/mod.ts";
 import { ItemProperties, NotionAccount, NotionTransaction } from "../types/index.d.ts";
 import { DatabaseType, NotionItem } from "./models.ts";
 
-const notion = new Client({
-    auth: Deno.env.get("NOTION_TOKEN"),
-})
+const NOTION_TOKEN = Deno.env.get("NOTION_TOKEN") as string
+const NOTION_MAIN_PAGE_ID = Deno.env.get("NOTION_MAIN_PAGE_ID") as string
 
-export const databases: Record<DatabaseType, string> = {
-    transactions: "c3c449aa4fab42bfaea5348817773e29",
-    accounts: "923b821b2f60439fb2dd0126f391ec4a"
+if (!NOTION_TOKEN || !NOTION_MAIN_PAGE_ID) {
+    throw new Error("Notion token or main page id not found")
 }
 
+const notion = new Client({
+    auth: NOTION_TOKEN,
+})
+
 const OPERATION_BATCH_SIZE = 10
+
+export async function getDatabaseId(database: DatabaseType) {
+    const results = (await notion.blocks.children.list({ block_id: NOTION_MAIN_PAGE_ID, page_size: 50 })).results as BlockObjectResponse[]
+    const databaseId = (results).filter(r =>
+        r?.type === "child_database" &&
+        r.child_database?.title.toLowerCase() === database.toLowerCase()
+    )?.[0].id || '' // Not the cleanest code in earth...
+    return databaseId
+}
+
+
 
 /**
  * Gets all pages from the Notion database.
  */
-export async function getDatabaseEntries<T extends DatabaseType>(database_id: string) {
+export async function getDatabaseEntries<T extends DatabaseType>(databaseId: string) {
     const pages: Record<string, NotionItem<T>> = {}
 
     let cursor = undefined
     while (true) {
         const response = await notion.databases.query({
-            database_id,
+            database_id: databaseId,
             start_cursor: cursor ?? undefined,
         }) as QueryDatabaseResponse
 
