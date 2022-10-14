@@ -2,7 +2,7 @@
 
 > An **automatic** personal finance tracker for your banks and crypto. All your finance data in Notion. No more manual data entry.
 
-## GitHub Actions
+## GitHub Action
 
 You can run this code in a GitHub Action, which can run everyday and update your Notion database. Learn more [here](https://github.com/onmax/joxi-github-action).
 
