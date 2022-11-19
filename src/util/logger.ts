@@ -8,7 +8,7 @@ function sensibleData(str: string) {
         final = final.replace(sensibleDataPath, "***...***")
     if (sensibleDataQuery)
         final = final.replace(sensibleDataQuery, "***...***")
- 
+
     return final
 }
 
@@ -26,4 +26,9 @@ export function log(str: string) {
         showSeparator = true
     }
     console.log(`${emoji}  ${sensibleData(str)}${showSeparator ? separator : ''}`)
+}
+
+export function warn(str: string) {
+    const emoji = "⚠️"
+    console.log(`${emoji}  ${sensibleData(str)}${separator}`)
 }

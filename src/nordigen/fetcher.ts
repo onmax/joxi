@@ -1,10 +1,15 @@
 import type { INordigenPagination, INordigenBank, INordigenRequisition, INordigenTransactions, INordigenBankAccount, INordigenBankAccountDetail, Bank, Account, INordigenBankAccountBalances, Transaction } from "../types/index.d.ts";
 import { get } from "./util.ts";
-import { log } from "../util/logger.ts";
+import { log, warn } from "../util/logger.ts";
 
 async function getRequisitions() {
     const allData = await get<INordigenPagination<INordigenRequisition>>(`/requisitions/`)
     const data = allData.results.filter(d => d.status === "LN" && d.accounts.length > 0)
+
+    if (data.length === 0) {
+        warn("We couldn't fetch your requisitions. Make sure you have linked at least one account in Nordigen.")
+        return []
+    }
 
     const nAccounts = data.map(d => d.accounts.length).reduce((a, b) => a + b)
     log(`Fetched ${data.length} requisitions with ${nAccounts} accounts`)
@@ -49,6 +54,8 @@ async function getAccount(accountId: string) {
 
 export async function getBanks() {
     const requisitions = await getRequisitions()
+    if (requisitions.length === 0) return []
+
     const bankIds = requisitions.map(r => r.institution_id)
     const requests = bankIds.map((id) => get<INordigenBank>(`/institutions/${id}`))
     const data = await Promise.all(requests)
