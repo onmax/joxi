@@ -24,7 +24,7 @@ You can run this code in a GitHub Action, which can run everyday and update your
 
 ## Setup
 
-> Before you start, please [fork](/fork) this repository.
+> Before you start, decide if you want to use [the GitHub Action](https://github.com/onmax/joxi-github-action) or this deno script.
 
 1. [Setup in Nordigen](#setup-in-nordigen)
 2. [Setup in Coinbase](#setup-in-coinbase)
